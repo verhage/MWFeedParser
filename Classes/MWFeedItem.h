@@ -34,6 +34,7 @@
 	NSString *identifier; // Item identifier
 	NSString *title; // Item title
 	NSString *link; // Item URL
+    NSString *author; // Author of the item, should be an e-mailaddress, although not checked by the parser
 	NSDate *date; // Date the item was published
 	NSDate *updated; // Date the item was updated if available
 	NSString *summary; // Description of item
@@ -52,6 +53,7 @@
 @property (nonatomic, copy) NSString *identifier;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *link;
+@property (nonatomic, copy) NSString *author;
 @property (nonatomic, copy) NSDate *date;
 @property (nonatomic, copy) NSDate *updated;
 @property (nonatomic, copy) NSString *summary;
