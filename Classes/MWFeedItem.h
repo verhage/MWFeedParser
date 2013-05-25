@@ -48,6 +48,11 @@
 	//     type: what its type is, a standard MIME type  (NSString)
 	NSArray *enclosures;
 
+    // Source: the source of this item
+    // NSDictionary with keys:
+    //     url: URL of this item's source
+    //     name: text content of the source tag, representing the name of the source
+    NSDictionary *source;
 }
 
 @property (nonatomic, copy) NSString *identifier;
@@ -60,5 +65,6 @@
 @property (nonatomic, copy) NSString *content;
 @property (nonatomic, copy) NSArray *categories;
 @property (nonatomic, copy) NSArray *enclosures;
+@property (nonatomic, copy) NSDictionary *source;
 
 @end

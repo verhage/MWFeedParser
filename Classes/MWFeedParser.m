@@ -624,6 +624,7 @@
 					else if ([currentPath isEqualToString:@"/rss/channel/item/enclosure"]) { [self createEnclosureFromAttributes:currentElementAttributes andAddToItem:item]; processed = YES; }
                     else if ([currentPath isEqualToString:@"/rss/channel/item/category"]) { if (processedText.length > 0) [self addCategory:processedText toItem:item]; processed = YES; }
 					else if ([currentPath isEqualToString:@"/rss/channel/item/dc:date"]) { if (processedText.length > 0) item.date = [NSDate dateFromInternetDateTimeString:processedText formatHint:DateFormatHintRFC3339]; processed = YES; }
+                    else if ([currentPath isEqualToString:@"/rss/channel/item/source"]) { if (processedText.length > 0) [self createSourceFromAttributes:currentElementAttributes withName:processedText andAddToItem:item]; processedText = YES; }
 				}
 				
 				// Info
@@ -969,6 +970,13 @@
     else {
         currentItem.categories = [NSArray arrayWithObject:category];
     }
+}
+
+// Creates source for the item. RSS 2.0 only, 
+- (void)createSourceFromAttributes:(NSDictionary *)attributes withName:(NSString *)name andAddToItem:(MWFeedItem *)currentItem
+{
+    NSString *srcUrl = [attributes objectForKey:@"url"];
+    currentItem.source = [NSDictionary dictionaryWithObjects:@[name, srcUrl] forKeys:@[@"name", @"url"]];
 }
 
 @end
