@@ -33,7 +33,7 @@
 
 @implementation MWFeedItem
 
-@synthesize identifier, title, link, author, date, updated, summary, content, categories, enclosures, source;
+@synthesize identifier, title, link, author, date, updated, summary, content, comments, categories, enclosures, source;
 
 #pragma mark NSObject
 
@@ -55,6 +55,7 @@
 	[updated release];
 	[summary release];
 	[content release];
+    [comments release];
     [categories release];
 	[enclosures release];
     [source release];
@@ -73,6 +74,7 @@
 		updated = [[decoder decodeObjectForKey:@"updated"] retain];
 		summary = [[decoder decodeObjectForKey:@"summary"] retain];
 		content = [[decoder decodeObjectForKey:@"content"] retain];
+        comments = [[decoder decodeObjectForKey:@"comments"] retain];
         categories = [[decoder decodeObjectForKey:@"categories"] retain];
 		enclosures = [[decoder decodeObjectForKey:@"enclosures"] retain];
         source = [[decoder decodeObjectForKey:@"source"] retain];
@@ -89,6 +91,7 @@
 	if (updated) [encoder encodeObject:updated forKey:@"updated"];
 	if (summary) [encoder encodeObject:summary forKey:@"summary"];
 	if (content) [encoder encodeObject:content forKey:@"content"];
+    if (comments) [encoder encodeObject:comments forKey:@"comments"];
     if (categories) [encoder encodeObject:categories forKey:@"categories"];
 	if (enclosures) [encoder encodeObject:enclosures forKey:@"enclosures"];
     if (source) [encoder encodeObject:source forKey:@"source"];

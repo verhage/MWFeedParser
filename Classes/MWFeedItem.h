@@ -39,6 +39,7 @@
 	NSDate *updated; // Date the item was updated if available
 	NSString *summary; // Description of item
 	NSString *content; // More detailed content (if available)
+    NSNumber *comments; // Comments on this item (if available, using slash module)
     NSArray *categories; // Categories the item belongs to (if available)
 	
 	// Enclosures: Holds 1 or more item enclosures (i.e. podcasts, mp3. pdf, etc)
@@ -63,6 +64,7 @@
 @property (nonatomic, copy) NSDate *updated;
 @property (nonatomic, copy) NSString *summary;
 @property (nonatomic, copy) NSString *content;
+@property (nonatomic, copy) NSNumber *comments;
 @property (nonatomic, copy) NSArray *categories;
 @property (nonatomic, copy) NSArray *enclosures;
 @property (nonatomic, copy) NSDictionary *source;
