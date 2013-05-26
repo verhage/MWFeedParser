@@ -54,6 +54,10 @@
     //     url: URL of this item's source
     //     name: text content of the source tag, representing the name of the source
     NSDictionary *source;
+    
+    // URL for an image that describes the item's content (custom module: article)
+    // https://github.com/verhage/MWFeedParser/article/
+    NSString *image;
 }
 
 @property (nonatomic, copy) NSString *identifier;
@@ -68,5 +72,6 @@
 @property (nonatomic, copy) NSArray *categories;
 @property (nonatomic, copy) NSArray *enclosures;
 @property (nonatomic, copy) NSDictionary *source;
+@property (nonatomic, copy) NSString *image;
 
 @end

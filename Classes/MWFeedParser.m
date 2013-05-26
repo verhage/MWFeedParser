@@ -626,6 +626,7 @@
                     else if ([currentPath isEqualToString:@"/rss/channel/item/category"]) { if (processedText.length > 0) [self addCategory:processedText toItem:item]; processed = YES; }
 					else if ([currentPath isEqualToString:@"/rss/channel/item/dc:date"]) { if (processedText.length > 0) item.date = [NSDate dateFromInternetDateTimeString:processedText formatHint:DateFormatHintRFC3339]; processed = YES; }
                     else if ([currentPath isEqualToString:@"/rss/channel/item/source"]) { if (processedText.length > 0) [self createSourceFromAttributes:currentElementAttributes withName:processedText andAddToItem:item]; processedText = YES; }
+                    else if ([currentPath isEqualToString:@"/rss/channel/item/article:image"]) { if (processedText.length > 0) item.image = processedText; processed = YES; }
 				}
 				
 				// Info
